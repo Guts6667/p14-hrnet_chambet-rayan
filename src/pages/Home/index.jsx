@@ -17,29 +17,21 @@ const Home = () => {
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
    
+
+  // Add verification before form validation in case the employee already exists
   const handleSubmit = (e) => {
     e.preventDefault()
-    let formDatas = {
-      firstName : firstName,
-      lastName : lastName,
-      birthDate: birthDate,
-      startDate : startDate, 
-      street : street, 
+
+    dispatch(employeeActions.addEmployee({
+      firstName: firstName, 
+      lastName: lastName, 
+      birthDate: birthDate, 
+      startDate: startDate,
+      street: street,
       city : city,
       state: state,
-      zipCode: zipCode,
+      zipCode : zipCode,
       department : department
-    }
-    dispatch(employeeActions.addEmployee({
-      firstName: formDatas.firstName, 
-      lastName: formDatas.lastName, 
-      birthDate: formDatas.birthDate, 
-      startDate: formDatas.birthDate,
-      street: formDatas.street,
-      city : formDatas.city,
-      state: formDatas.state,
-      zipCode : formDatas.zipCode,
-      department : formDatas.department
     }))
     dispatch(employeeActions.getEmployee())
   }

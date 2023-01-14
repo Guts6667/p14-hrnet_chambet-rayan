@@ -1,0 +1,32 @@
+.container {
+  &__employee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+
+    &-entries {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+    }
+  }
+  &__table {
+    border: 2px solid white;
+    border-spacing: 0px !important;
+    overflow: scroll;
+    tbody {
+      tr {
+        &:hover {
+          background-color: #3b3b3b;
+        }
+      }
+    }
+
+    td,
+    th {
+      padding: 5px;
+      border: 2px solid white;
+    }
+  }
+}

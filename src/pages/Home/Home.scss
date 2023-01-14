@@ -7,19 +7,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      .btn-link {
-        color: white;
-        background-color: rgb(20, 20, 20);
-        padding: 15px;
-        border-radius: 25px;
-        border: 2px solid white;
-        font-weight: bold;
-        box-shadow: 1px 1px 6px 1px white;
-        &:hover {
-          background-color: white;
-          color: black;
-        }
-      }
     }
   }
   &__form {
@@ -50,18 +37,10 @@
       label {
         align-self: flex-start;
       }
-      input,
-      select {
-        width: 100%;
-        border: 2px solid white;
-        background-color: black;
-        color: white;
-        border-radius: 25px;
-        padding: 5px 10px;
-      }
     }
     &-submit {
       input {
+        color: black;
         font-weight: bold;
         width: 150px;
         padding: 10px 20px;

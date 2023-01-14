@@ -9,7 +9,7 @@ const Employees = () => {
     const [datas, setDatas] = useState([])
     const employeeDatas = useSelector((state) => state.employee)
     useEffect(() => {
-        if(searchInput.length >= 3){
+        if(searchInput.length >= 2){
             setDatas(searchFilter(employeeDatas, searchInput))
         } else{
             setDatas(employeeDatas)

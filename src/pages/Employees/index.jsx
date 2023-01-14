@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import searchFilter from "../../service/searchFilter";
+// import sortByFirstName from "../../service/sortByFirstName";
 import "./Employees.scss"
 const Employees = () => {
     const [searchInput, setSearchInput] = useState("")
@@ -55,7 +56,7 @@ const Employees = () => {
                     {datas.map((data) => {
                         return(
                             <tr key={`${data.lastName}-${data.birthDate}-${data.department}`}>
-                                <td>{data.firstName}</td>
+                                <td >{data.firstName}</td>
                                 <td>{data.lastName}</td>
                                 <td>{data.birthDate}</td>
                                 <td>{data.startDate}</td>

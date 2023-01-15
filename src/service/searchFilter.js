@@ -16,9 +16,9 @@ const searchFilter = (datas, input) => {
       data.zipCode.toLowerCase().includes(input.toLowerCase())
     ) {
       filteredDatas.push(data);
-      return filteredDatas;
     }
   });
+
   return filteredDatas;
 };
 

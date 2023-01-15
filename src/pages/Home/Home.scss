@@ -34,7 +34,14 @@
       align-items: center;
       row-gap: 5px;
       width: 100%;
+      color-scheme: dark;
       label {
+        align-self: flex-start;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+        font-style: italic;
         align-self: flex-start;
       }
     }

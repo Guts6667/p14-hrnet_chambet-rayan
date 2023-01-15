@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { employeeActions } from "../../store/employee";
 import "./Home.scss"
-const Home = () => {
+const Home = () => {  
+
+  // Add verification before form validation in case the employee already exists
+  //Add span element in modal saying: employee already existing
+  const employeeState = useSelector((state) => state.employee)
+  const maxStartDate = new Date().toISOString().slice(0,10)
+  const minDate = new Date(new Date(maxStartDate).setFullYear(new Date(maxStartDate).getFullYear() - 70));
+  const maxDate = new Date(new Date(maxStartDate).setFullYear(new Date(maxStartDate).getFullYear() - 18));
+  const maxBirthDate = maxDate.toISOString().slice(0,10);
+  const minBirthDate = minDate.toISOString().slice(0,10);
+
   const dispatch = useDispatch();
   const [states, setStates] = useState([])
+  const [isFormInvalid, setIsFormInvalid] = useState(false);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -16,13 +27,12 @@ const Home = () => {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
-   
 
-  // Add verification before form validation in case the employee already exists
+
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    dispatch(employeeActions.addEmployee({
+    // Retrieves formDatas
+    const formDatas = {
       firstName: firstName, 
       lastName: lastName, 
       birthDate: birthDate, 
@@ -32,8 +42,34 @@ const Home = () => {
       state: state,
       zipCode : zipCode,
       department : department
-    }))
-    dispatch(employeeActions.getEmployee())
+    }
+    // Compares formDatas with storeDatas
+        let existingEmployee = employeeState.filter( (element) => element.firstName.toLowerCase() === formDatas.firstName.toLowerCase() && element.lastName.toLowerCase() === formDatas.lastName.toLowerCase() )
+
+        if(existingEmployee.length > 0){
+          console.log('Employ already exists!');
+          dispatch(employeeActions.getEmployee())
+          setIsFormInvalid(true)
+          let formInputs = document.querySelectorAll("input[type='text']");
+          formInputs.forEach((element) => element.value = " ")
+        } else{
+          setIsFormInvalid(false)
+          dispatch(employeeActions.addEmployee({
+            firstName: formDatas.firstName, 
+            lastName: formDatas.lastName, 
+            birthDate: formDatas.birthDate, 
+            startDate: formDatas.startDate,
+            street: formDatas.street,
+            city : formDatas.city,
+            state: formDatas.state,
+            zipCode : formDatas.zipCode,
+            department : formDatas.department
+          }))
+        }
+          
+
+          
+
   }
 
   useEffect(() => {
@@ -53,18 +89,20 @@ const Home = () => {
           <div className="container__form-input">
             <label htmlFor="">First Name</label>
             <input type="text" onChange={(e) => {setFirstName(e.target.value)}} required/>
+            {isFormInvalid && <span className="error">Employé déjà existant</span>}
           </div>
           <div className="container__form-input">
             <label htmlFor="">Last Name</label>
             <input type="text" onChange={(e) => {setLastName(e.target.value)}} required/>
+            {isFormInvalid && <span className="error">Employé déjà existant</span>}
           </div>
           <div className="container__form-input">
             <label htmlFor="">Date of Birth</label>
-            <input type="date" onChange={(e) => {setBirthDate(e.target.value)}} required />
+            <input type="date" max={maxBirthDate} min={minBirthDate} onChange={(e) => {setBirthDate(e.target.value)}} required />
           </div>
           <div className="container__form-input">
             <label htmlFor="">Start Date</label>
-            <input type="date" onChange={(e) => {setStartDate(e.target.value)}}required />
+            <input type="date" max={maxStartDate} onChange={(e) => {setStartDate(e.target.value)}}required />
           </div>
           <div className="container__form-address">
             <span>Address</span>
@@ -88,7 +126,7 @@ const Home = () => {
             </div>
             <div className="container__form-input">
               <label htmlFor="">Zip Code</label>
-              <input type="number" onChange={(e) => {setZipCode(e.target.value)}}required />
+              <input type="number" min="0" onChange={(e) => {setZipCode(e.target.value)}}required />
             </div>
           </div>
           <div className="container__form-input">

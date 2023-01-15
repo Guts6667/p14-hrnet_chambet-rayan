@@ -41,21 +41,21 @@ const Employees = () => {
             <table className="container__table">
                 <thead>
                     <tr>
-                        <th colSpan={1}>First Name</th>
-                        <th colSpan={1}>Last Name</th>
-                        <th colSpan={1}>Date Of Birth</th>
-                        <th colSpan={1}>Start Date</th>
-                        <th colSpan={1}>Street</th>
-                        <th colSpan={1}>City</th>
-                        <th colSpan={1}>State</th>
-                        <th colSpan={1}>Zip Code</th>
-                        <th colSpan={1}>Department</th>
+                        <th colSpan={1} className="container__table-head"><span>First Name</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>Last Name</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>Date Of Birth</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>Start Date</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>Street</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>City</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>State</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"> <span>Zip Code</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
+                        <th colSpan={1} className="container__table-head"><span>Department</span><img className="chevron" src="/assets/chevron-up-solid.svg" alt="chevron up" /></th>
                     </tr>
                 </thead>
                 <tbody>
                     {datas.map((data) => {
                         return(
-                            <tr key={`${data.lastName}-${data.birthDate}-${data.department}`}>
+                            <tr key={`${data.birthDate}-${data.id}`}>
                                 <td >{data.firstName}</td>
                                 <td>{data.lastName}</td>
                                 <td>{data.birthDate}</td>

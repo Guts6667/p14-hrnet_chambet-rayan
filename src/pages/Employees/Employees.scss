@@ -28,8 +28,11 @@
       padding: 5px;
       border: 2px solid white;
     }
-    .chevron {
-      width: 20px !important;
+    &-head {
+      cursor: pointer;
+      .chevron {
+        width: 20px !important;
+      }
     }
   }
 }

@@ -1,0 +1,123 @@
+[
+    {
+    "id" : "ph1",
+      "birthDate": "2003-03-11",
+      "city": "New York",
+      "department": "Sales",
+      "firstName": "John",
+      "lastName": "Smith",
+      "startDate": "2022-11-01",
+      "state": "New York",
+      "street": "1234 Main St",
+      "zipCode": "10001"
+    },
+    {
+        "id" : "ph2",
+      "birthDate": "2000-07-01",
+      "city": "Chicago",
+      "department": "Marketing",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "startDate": "2022-10-15",
+      "state": "Illinois",
+      "street": "5678 Park Ave",
+      "zipCode": "60601"
+    },
+    {
+        "id" : "ph3",
+      "birthDate": "2003-05-20",
+      "city": "Los Angeles",
+      "department": "Engineering",
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "startDate": "2022-09-01",
+      "state": "California",
+      "street": "9012 Sunset Blvd",
+      "zipCode": "90001"
+    },
+    {
+        "id" : "ph4",
+        "birthDate": "2003-05-20",
+        "city": "Houston",
+        "department": "Human Resources",
+        "firstName": "Emily",
+        "lastName": "Parker",
+        "startDate": "2022-09-01",
+        "state": "Texas",
+        "street": "123 Elm St",
+        "zipCode": "77001"
+    },
+    {
+        "id" : "ph5",
+        "birthDate": "2000-12-01",
+        "city": "Philadelphia",
+        "department": "Legal",
+        "firstName": "Michael",
+        "lastName": "Brown",
+        "startDate": "2022-08-01",
+        "state": "Pennsylvania",
+        "street": "456 Oak St",
+        "zipCode": "19101"
+    },
+    {
+        "id" : "ph6",
+        "birthDate": "2002-01-15",
+        "city": "Phoenix",
+        "department": "Sales",
+        "firstName": "Sarah",
+        "lastName": "Davis",
+        "startDate": "2022-07-01",
+        "state": "Arizona",
+        "street": "789 Pine St",
+        "zipCode": "85001"
+    },
+    {
+        "id" : "ph7",
+        "birthDate": "1999-09-01",
+        "city": "San Antonio",
+        "department": "Marketing",
+        "firstName": "David",
+        "lastName": "Miller",
+        "startDate": "2022-06-01",
+        "state": "Texas",
+        "street": "321 Cedar St",
+        "zipCode": "78201"
+    },
+    {
+        "id" : "ph8",
+        "birthDate": "2001-03-31",
+        "city": "San Diego",
+        "department": "Engineering",
+        "firstName": "Jessica",
+        "lastName": "Wilson",
+        "startDate": "2022-05-01",
+        "state": "California",
+        "street": "654 Maple St",
+        "zipCode": "92101"
+    },
+    {
+        "id" : "ph9",
+        "birthDate": "1998-07-15",
+        "city": "Dallas",
+        "department": "Human Resources",
+        "firstName": "Richard",
+        "lastName": "Moore",
+        "startDate": "2022-04-01",
+        "state": "Texas",
+        "street": "987 Birch St",
+        "zipCode": "75201"
+    },
+    {
+        "id" : "ph10",
+        "birthDate": "1997-11-01",
+        "city": "San Jose",
+        "department": "Legal",
+        "firstName": "Patricia",
+        "lastName": "Taylor",
+        "startDate": "2022-03-01",
+        "state": "California",
+        "street": "246 Elm St",
+        "zipCode": "95101"
+    }   
+  ]
+  

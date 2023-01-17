@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import sortBy from "../../service/sortBy";
 const TableEmployee = ({ datas }) => {
   const [tableDatas, setTableDatas] = useState([]);
-  const [firstName, setFirstName] = useState(false);
-  const [lastName, setLastName] = useState(false);
-  const [birthDate, setBirthDate] = useState(false);
-  const [startDate, setStartDate] = useState(false);
-  const [street, setStreet] = useState(false);
-  const [city, setCity] = useState(false);
-  const [state, setState] = useState(false);
-  const [zipCode, setZipCode] = useState(false);
-  const [department, setDepartment] = useState(false);
-
+  // const [firstName, setFirstName] = useState(false);
+  // const [lastName, setLastName] = useState(false);
+  // const [birthDate, setBirthDate] = useState(false);
+  // const [startDate, setStartDate] = useState(false);
+  // const [street, setStreet] = useState(false);
+  // const [city, setCity] = useState(false);
+  // const [state, setState] = useState(false);
+  // const [zipCode, setZipCode] = useState(false);
+  // const [department, setDepartment] = useState(false);
+  // const states = [setTableDatas,setFirstName, setLastName, setBirthDate, setStartDate, setStreet, setCity, setState, setZipCode, setDepartment ]
 
 /**
  * Gérer le problème des chevrons
@@ -32,6 +32,8 @@ const TableEmployee = ({ datas }) => {
     // zipcode ? setTableDatas(sortBy(tableDatas, "zipCode")) : setTableDatas(datas);
     // department ? setTableDatas(sortBy(tableDatas, "department")) : setTableDatas(datas);
   }, [datas]);
+
+
   const handleSort = (type) => {
     setTableDatas(sortBy(tableDatas, type));
   };
@@ -44,13 +46,18 @@ const TableEmployee = ({ datas }) => {
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("firstName")}
+              onClick={() => handleSort( "firstName")}
             >
               <span>First Name</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${firstName ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up firstName hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down firstName "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -60,9 +67,14 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Last Name</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${lastName ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up lastName hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down lastName "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -72,9 +84,14 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Date Of Birth</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${birthDate ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up birthDate hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down birthDate "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -84,9 +101,14 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Start Date</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${startDate ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up startDate hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down startDate "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -96,33 +118,48 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Street</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${street ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up street hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down street "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("city")}
+              onClick={() => handleSort( "city")}
             >
               <span>City</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${city ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up city hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down city "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("state")}
+              onClick={() => handleSort( "state")}
             >
               <span>State</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${state ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up state hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down state "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -132,9 +169,14 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Zip Code</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${zipCode ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up zipCode hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down zipCode "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
             <th
@@ -144,9 +186,14 @@ const TableEmployee = ({ datas }) => {
             >
               <span>Department</span>
               <img
-                className="chevron"
-                src={`/assets/chevron-${department ? "up" : "down"}-solid.svg`}
-                alt="chevron up"
+                className="chevron chevron-up department hidden"
+                src={`/assets/chevron-up-solid.svg`}
+                alt="chevron"
+              />
+              <img
+                className="chevron chevron-down department "
+                src={`/assets/chevron-down-solid.svg`}
+                alt="chevron"
               />
             </th>
           </tr>

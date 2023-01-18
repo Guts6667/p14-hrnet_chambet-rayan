@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { employeeActions } from "../../store/employee";
+import Modal from 'p14_modal-library_rayan-chambet';
 import InputBirthDate from "../InputBirthDate";
 import InputDepartment from "../InputDepartment";
 import InputStartDate from "../InputStartDate";
@@ -108,6 +109,7 @@ const FormEmployee = () => {
           <div className="container__form-submit">
             <input type="submit" value="Valider"/>
           </div>
+          {!isFormInvalid && <Modal title={"Success!"} description={"Employee created!"}buttonText={"Close Modal"}/>}
         </form>
     )
 }

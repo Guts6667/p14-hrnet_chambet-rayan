@@ -1,41 +1,31 @@
+
 import React, { useEffect, useState } from "react";
 import sortBy from "../../service/sortBy";
 const TableEmployee = ({ datas }) => {
+  const [allDatas, setAllDatas] = useState([])
   const [tableDatas, setTableDatas] = useState([]);
-  // const [firstName, setFirstName] = useState(false);
-  // const [lastName, setLastName] = useState(false);
-  // const [birthDate, setBirthDate] = useState(false);
-  // const [startDate, setStartDate] = useState(false);
-  // const [street, setStreet] = useState(false);
-  // const [city, setCity] = useState(false);
-  // const [state, setState] = useState(false);
-  // const [zipCode, setZipCode] = useState(false);
-  // const [department, setDepartment] = useState(false);
-  // const states = [setTableDatas,setFirstName, setLastName, setBirthDate, setStartDate, setStreet, setCity, setState, setZipCode, setDepartment ]
+ 
 
-/**
- * Gérer le problème des chevrons
- */
   useEffect(() => {
     if (datas) {
+      setAllDatas(datas)
       setTableDatas(datas);
     }
-
-    // city ? setTableDatas(sortBy(tableDatas, "city")) : setTableDatas(datas);
-    // firstName ? setTableDatas(sortBy(tableDatas, "firstName")) : setTableDatas(datas);
-    // lastName ? setTableDatas(sortBy(tableDatas, "lastName")) : setTableDatas(datas);
-    // birthDate ? setTableDatas(sortBy(tableDatas, "birthDate")) : setTableDatas(datas);
-    // startDate ? setTableDatas(sortBy(tableDatas, "startDate")) : setTableDatas(datas);
-    // street ? setTableDatas(sortBy(tableDatas, "street")) : setTableDatas(datas);
-    // city ? setTableDatas(sortBy(tableDatas, "city")) : setTableDatas(datas);
-    // state ? setTableDatas(sortBy(tableDatas, "state")) : setTableDatas(datas);
-    // zipcode ? setTableDatas(sortBy(tableDatas, "zipCode")) : setTableDatas(datas);
-    // department ? setTableDatas(sortBy(tableDatas, "department")) : setTableDatas(datas);
-  }, [datas]);
+  }, [datas, allDatas]);
 
 
-  const handleSort = (type) => {
-    setTableDatas(sortBy(tableDatas, type));
+  const handleSort = (target, type) => {
+    const filters = document.querySelectorAll("th")
+    if(target.classList.contains("gold")){
+      filters.forEach((filter) => filter.classList.remove("gold"))
+      setTableDatas(allDatas)
+      target.classList.remove("gold")
+    } else if(!target.classList.contains("gold"))
+    {filters.forEach((filter) => filter.classList.remove("gold"))
+      setTableDatas(sortBy(tableDatas, type));
+      target.classList.add("gold")
+    }
+
   };
 
   return (
@@ -46,155 +36,66 @@ const TableEmployee = ({ datas }) => {
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort( "firstName")}
+              onClick={(e) => handleSort(e.currentTarget, "firstName")}
             >
               <span>First Name</span>
-              <img
-                className="chevron chevron-up firstName hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down firstName "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("lastName")}
+              onClick={(e) => handleSort(e.currentTarget,"lastName")}
             >
               <span>Last Name</span>
-              <img
-                className="chevron chevron-up lastName hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down lastName "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("birthDate")}
+              onClick={(e) => handleSort(e.currentTarget,"birthDate")}
             >
               <span>Date Of Birth</span>
-              <img
-                className="chevron chevron-up birthDate hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down birthDate "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("startDate")}
+              onClick={(e) => handleSort(e.currentTarget,"startDate")}
             >
               <span>Start Date</span>
-              <img
-                className="chevron chevron-up startDate hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down startDate "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("street")}
+              onClick={(e) => handleSort(e.currentTarget,"street")}
             >
               <span>Street</span>
-              <img
-                className="chevron chevron-up street hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down street "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
+  
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort( "city")}
+              onClick={(e) => handleSort(e.currentTarget, "city")}
             >
               <span>City</span>
-              <img
-                className="chevron chevron-up city hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down city "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort( "state")}
+              onClick={(e) => handleSort(e.currentTarget, "state")}
             >
               <span>State</span>
-              <img
-                className="chevron chevron-up state hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down state "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("zipCode")}
+              onClick={(e) => handleSort(e.currentTarget,"zipCode")}
             >
               <span>Zip Code</span>
-              <img
-                className="chevron chevron-up zipCode hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down zipCode "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
             <th
               colSpan={1}
               className="container__table-head"
-              onClick={() => handleSort("department")}
+              onClick={(e) => handleSort(e.currentTarget,"department")}
             >
               <span>Department</span>
-              <img
-                className="chevron chevron-up department hidden"
-                src={`/assets/chevron-up-solid.svg`}
-                alt="chevron"
-              />
-              <img
-                className="chevron chevron-down department "
-                src={`/assets/chevron-down-solid.svg`}
-                alt="chevron"
-              />
             </th>
           </tr>
         </thead>

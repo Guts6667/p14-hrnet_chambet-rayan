@@ -4,6 +4,11 @@
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
+    @media only screen and (max-width: 700px) {
+      align-items: flex-start;
+      overflow: auto;
+      margin: 20px;
+    }
 
     &-entries {
       display: flex;
@@ -38,4 +43,7 @@
 }
 .hidden {
   display: none;
+}
+.gold {
+  color: goldenrod;
 }

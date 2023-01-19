@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { employeeActions } from "../../store/employee";
-import Modal from 'p14_modal-library_rayan-chambet';
 import InputBirthDate from "../InputBirthDate";
 import InputDepartment from "../InputDepartment";
 import InputStartDate from "../InputStartDate";
 import InputState from "../inputState/inputState";
+import Modal from "p14-lib-hrnet-chambet-rayan"
 
 const FormEmployee = () => {
 
     const employeeState = useSelector((state) => state.employee)
     const dispatch = useDispatch();
     const [isFormInvalid, setIsFormInvalid] = useState(false);
+    const [showModal, setShowModal] = useState(false)
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -49,6 +50,7 @@ const FormEmployee = () => {
           formInputs.forEach((element) => element.value = " ")
         } else{
           setIsFormInvalid(false)
+          setShowModal(true)
           dispatch(employeeActions.addEmployee({
             firstName: formDatas.firstName, 
             lastName: formDatas.lastName, 
@@ -109,7 +111,7 @@ const FormEmployee = () => {
           <div className="container__form-submit">
             <input type="submit" value="Valider"/>
           </div>
-          {!isFormInvalid && <Modal title={"Success!"} description={"Employee created!"}buttonText={"Close Modal"}/>}
+          {showModal && <Modal title={"Sucess!"} description={"Employee created successfully, you can now see it in the the 'Employee's table' "} buttonText={"Close"} /> }
         </form>
     )
 }

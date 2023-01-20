@@ -9,7 +9,7 @@ const InputState = ({setState}) => {
      }, []);
 
     return(
-        <select name="" id=""  onChange={(e) => setState(e.target.value)}>
+        <select onChange={(e) => setState(e.target.value)}>
              {states.map((state)=> {
               return (
                 <option key={`${state.name}-${state.abbreviation}`} value={state.name} >{state.name}</option>

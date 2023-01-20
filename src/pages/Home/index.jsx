@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FormEmployee from "../../components/FormEmployee";
-// import Modal from "p14-lib-hrnet-chambet-rayan"
 import "./Home.scss"
 const Home = () => {  
 
@@ -15,7 +14,6 @@ const Home = () => {
         <h2>Create Employee</h2>
         <FormEmployee />
       </main>
-      {/* <Modal title={"Sucess!"} description={"Employee created successfully, you can now see it in the the 'Employee's table' "} buttonText={"Close"} /> */}
     </div>
   );
 };

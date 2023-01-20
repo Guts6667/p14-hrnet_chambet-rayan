@@ -1,6 +1,5 @@
 // Create filter functions
 const sortBy = (datas, type) => {
-  // The function is good, just need to call it at the right place in the component
   let sortedDatas = [...datas];
   switch (type) {
     case "firstName":

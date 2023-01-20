@@ -1,9 +1,6 @@
 import React from "react";
 
 const InputEntries = ({setDatasLimit}) => {
-    // const handleEntrie = (e) => {
-    //     setDatasLimit(e)
-    // }
 
     return(
             <div className="container__employee-entries">

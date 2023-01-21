@@ -7,12 +7,22 @@ import TableEmployee from "../../components/TableEmployee";
 import searchFilter from "../../service/searchFilter";
 import "./Employees.scss"
 
-const Employees = () => {
+/**
+ * 
+ * @returns {JSX} React Component
+ * This is the page Employee
+ */
 
+const Employees = () => {
+/** Contains searchbar input value */
 const [searchInput, setSearchInput] = useState("");
+/** Contains all datas */
 const [datas, setDatas] = useState([]);
+/** Contains limit of datas dosplayed */
 const [datasLimit, setDatasLimit] = useState(10);
+/** Contains the index of the page */
 const [currentPage, setCurrentPage] = useState(1);
+/** Gets all employee datas from the state employee */
 const [employeeDatas, setEmployeeDatas] = useState(useSelector((state) => state.employee));
 
 useEffect(() => {

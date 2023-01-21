@@ -7,13 +7,23 @@ import InputStartDate from "../InputStartDate";
 import InputState from "../inputState/inputState";
 import Modal from "p14-lib-hrnet-chambet-rayan"
 
+/**
+ * This the Form displayed on the Home page
+ * @returns {JSX} React Component
+ */
+
 const FormEmployee = () => {
 
+    /** Retrieves the employee state */
     const employeeState = useSelector((state) => state.employee)
+    /** Saves useDispatch() in a const to use it in functions dispatch */
     const dispatch = useDispatch();
+    /** State for the form*/
     const [isFormInvalid, setIsFormInvalid] = useState(false);
+    /** State allowing to display (or not) the modal */
     const [showModal, setShowModal] = useState(false)
 
+    /** All theses states are used to retrieve the form inputs with an onchange listener */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
@@ -24,6 +34,7 @@ const FormEmployee = () => {
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
 
+  /** Function called when the form is submited */
   const handleSubmit = (e) => {
     e.preventDefault()
     // Retrieves formDatas
@@ -39,9 +50,11 @@ const FormEmployee = () => {
       department : department
     }
     console.log(formDatas);
-    // Compares formDatas with storeDatas
+    /** Compares formDatas with storeDatas to check 
+     * if an employee already has the same first name and last name */
         let existingEmployee = employeeState.filter( (element) => element.firstName.toLowerCase() === formDatas.firstName.toLowerCase() && element.lastName.toLowerCase() === formDatas.lastName.toLowerCase() )
 
+        /** Instruction executed if the employee already exists */
         if(existingEmployee.length > 0){
           console.log('Employ already exists!');
           dispatch(employeeActions.getEmployee())
@@ -49,6 +62,7 @@ const FormEmployee = () => {
           let formInputs = document.querySelectorAll("input[type='text']");
           formInputs.forEach((element) => element.value = " ")
         } else{
+          /** Instructions executed if the form is valid */
           setIsFormInvalid(false)
           setShowModal(true)
           dispatch(employeeActions.addEmployee({

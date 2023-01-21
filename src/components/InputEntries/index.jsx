@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * @param {Function} setDatasLimit()
+ * @returns {JSX} React Component
+ */
 const InputEntries = ({setDatasLimit}) => {
 
     return(

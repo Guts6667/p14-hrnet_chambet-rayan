@@ -1,10 +1,22 @@
 
 import React, { useEffect, useState } from "react";
 import sortBy from "../../service/sortBy";
+
+/**
+ * 
+ * @param {Array} Array of Object datas 
+ * @returns {JSX} React Component
+ */
+
 const TableEmployee = ({ datas }) => {
+  /**
+   * allDatas is used to set the table to its original state
+   * tableDatas is used to display the altered/filtered datas
+   */
   const [allDatas, setAllDatas] = useState([])
   const [tableDatas, setTableDatas] = useState([]);
  
+  /** Add all datas to both states*/
 
   useEffect(() => {
     if (datas) {
@@ -13,6 +25,7 @@ const TableEmployee = ({ datas }) => {
     }
   }, [datas, allDatas]);
 
+  /** Function called to sort and display the sorted the datas */
 
   const handleSort = (target, type) => {
     const filters = document.querySelectorAll("th")

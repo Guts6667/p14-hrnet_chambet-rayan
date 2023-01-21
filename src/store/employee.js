@@ -1,5 +1,9 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
+/**
+ * Slice Employee
+ * initialEmployeeState = Array of Object
+ */
 const initialEmployeeState = [
   {
     id: "ph1",

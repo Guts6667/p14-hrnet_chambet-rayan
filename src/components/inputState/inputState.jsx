@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
-
+/**
+ * 
+ * @param {Function} setState() 
+ * @returns {JSX} React Component
+ */
 const InputState = ({setState}) => {
     const [states, setStates] = useState([]);
+    /**Fetches a list of state to display in the select input */
     useEffect(() => {
         fetch("/data/states.json")
        .then((data) => data.json())

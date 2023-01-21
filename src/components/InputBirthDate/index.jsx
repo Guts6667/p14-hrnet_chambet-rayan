@@ -1,7 +1,14 @@
 import React from "react";
+/**
+ * 
+ * @param {Function} setBirthDate()
+ * @returns {JSX} React Component
+ */
 
 const InputBirthDate = ({setBirthDate}) => {
+  /** Creates max start date available */
     const maxStartDate = new Date().toISOString().slice(0, 10);
+  /** Creates min start data available */
     const minDate = new Date(
       new Date(maxStartDate).setFullYear(new Date(maxStartDate).getFullYear() - 70)
     );

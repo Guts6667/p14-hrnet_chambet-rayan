@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * 
+ * @param {Function} setStartDate() 
+ * @returns {JSX} React Component
+ */
 const InputStartDate = ({setStartDate}) => {
     const maxStartDate = new Date().toISOString().slice(0, 10);
       return(

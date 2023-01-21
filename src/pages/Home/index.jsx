@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FormEmployee from "../../components/FormEmployee";
 import "./Home.scss"
+/**
+ * 
+ * @returns {JSX} React Component
+ * Page Home
+ */
 const Home = () => {  
 
   return (

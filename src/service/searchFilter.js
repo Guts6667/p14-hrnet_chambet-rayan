@@ -1,3 +1,10 @@
+/**
+ *
+ * @param {Array} datas
+ * @param {String} input
+ * @returns {Array} filteredDatas
+ * This function is called whenever the use interact with the searchbar
+ */
 const searchFilter = (datas, input) => {
   let filteredDatas = [];
   datas.forEach((data) => {

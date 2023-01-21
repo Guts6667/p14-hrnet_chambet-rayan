@@ -1,4 +1,9 @@
-// Create filter functions
+/**
+ *
+ * @param {Array} datas
+ * @param {String} type
+ * @returns {Array} sortedDatas
+ */
 const sortBy = (datas, type) => {
   let sortedDatas = [...datas];
   switch (type) {

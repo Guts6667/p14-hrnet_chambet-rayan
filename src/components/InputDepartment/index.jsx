@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * 
+ * @param {Function} setDepartment()
+ * @returns {JSX} React Component
+ */
 const InputDepartment = ({setDepartment}) => {
 
 

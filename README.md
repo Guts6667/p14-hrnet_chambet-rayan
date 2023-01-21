@@ -2,9 +2,14 @@
 
 ## HRnet is a fictional app for HR
 
-The goal here was to convert a JQUERY app to a React JS one as well as creating a library component.
+The goal here was to:
 
-On HRnet, you can add employees to a table handled with Redux states and use multiple filters to sort the datas.
+- Convert a jQuery app to a React JS one.
+- Convert a jQuery plugin to a React Component.
+- Add a state management system with Redux.
+
+The jQuery version can be found here:
+https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
 ## Getting Started
 
